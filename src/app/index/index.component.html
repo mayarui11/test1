@@ -1,0 +1,36 @@
+<p>index works!</p>
+
+<h3>模块, 组件</h3>
+<hr>
+
+<h3>路由跳转</h3>
+<a routerLink="/two" >two</a>
+<br>
+<br>
+<a (click)="jumpTwo()">two</a>
+<hr>
+
+<h3>动态css</h3>
+<div [class.red]="classFlag" (click)="changeFlag()">动态样式1111111</div>
+<div [style.color]="classFlag ? 'green' : 'blue'">动态style22222222</div>
+<div [className]="classFlag ? 'red' : 'pink'">动态样式22222222</div>
+<hr>
+
+<h3>双向绑定</h3>
+<input [(ngModel)]="inputText" (input)="consoleValue()" type="text">
+<button (click)="changeInputValue()">确定</button>
+<hr>
+
+<h3>数据显示</h3>
+<div *ngIf="classFlag">{{data}}</div>
+<ul>
+  <li *ngFor="let item of arrData">{{item.name}} <span>年龄: {{item.age}}</span>  </li>
+</ul>
+<hr>
+
+<h3>父子组件</h3>
+<app-two [childValue]="currentValue" (outer)="onReceiveChildData($event)"></app-two>
+<hr>
+
+<h3>管道</h3>
+<div>{{apple | uppercase}}</div>
